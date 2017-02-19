@@ -1,0 +1,27 @@
+{
+  "name": "tr-recode-mock",
+  "version": "0.0.1-SNAPSHOT",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cors": "^2.8.1",
+    "express": "^4.14.1",
+    "graphql": "^0.9.1",
+    "graphql-server-express": "^0.6.0",
+    "graphql-tools": "^0.10.0",
+    "swagger-mock-api": "git+https://github.com/wjtan/swagger-mock-api.git"
+  },
+  "repository": {},
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "strip-json-comments": "^2.0.1"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1 test"
+  },
+  "author": "Tan Wen Jun (Denom)",
+  "license": "MIT"
+}

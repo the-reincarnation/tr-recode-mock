@@ -1,0 +1,881 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "beta",
+    "title" : "",
+    "contact" : {
+      "name" : ""
+    },
+    "license" : {
+      "name" : "",
+      "url" : "http://licenseUrl"
+    }
+  },
+  "host" : "localhost:9000",
+  "basePath" : "/",
+  "paths" : {
+    "/api" : {
+      "get" : {
+        "summary" : "Get server api version",
+        "description" : "",
+        "operationId" : "getApiVersion",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/api/login" : {
+      "post" : {
+        "summary" : "Login",
+        "description" : "",
+        "operationId" : "login",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "login",
+          "description" : "Login username and password",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Login"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/assignments" : {
+      "post" : {
+        "summary" : "Assign item and spell for defense",
+        "description" : "",
+        "operationId" : "assign",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "assignment parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AssignmentAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/build" : {
+      "post" : {
+        "summary" : "Build buildings",
+        "description" : "",
+        "operationId" : "build",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "build parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/BuildingAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/cast" : {
+      "post" : {
+        "summary" : "Cast spells",
+        "description" : "",
+        "operationId" : "castSpell",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "cast parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/SpellCastAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/destroy" : {
+      "post" : {
+        "summary" : "Destroy buildings",
+        "description" : "",
+        "operationId" : "destroy",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "destroy parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/DestroyAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/disband" : {
+      "post" : {
+        "summary" : "Disband unit stacks",
+        "description" : "",
+        "operationId" : "disband",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "disband parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/DisbandAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/dispel" : {
+      "post" : {
+        "summary" : "Dispel enchantments",
+        "description" : "",
+        "operationId" : "dispel",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "dispel parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/DispelAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/enchantments/option" : {
+      "put" : {
+        "summary" : "Set options for enchantment",
+        "description" : "",
+        "operationId" : "setEnchantmentOptions",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "option parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/SetEnchantmentOptionsAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/explore" : {
+      "post" : {
+        "summary" : "Explore for land",
+        "description" : "",
+        "operationId" : "explore",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "turns",
+          "description" : "Turns to use",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Turns"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/god/donate" : {
+      "post" : {
+        "summary" : "Donate gold to god",
+        "description" : "",
+        "operationId" : "donate",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "donation parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/DonationAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/hero/ability" : {
+      "put" : {
+        "summary" : "Enable/Disable hero ability",
+        "description" : "",
+        "operationId" : "setHeroAbility",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "set hero ability parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/SetHeroAbilityAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/hero/ability/instant" : {
+      "post" : {
+        "summary" : "Use instant hero ability",
+        "description" : "",
+        "operationId" : "useHeroAbility",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "use hero ability parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UseHeroAbilityAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/hero/{heroId}" : {
+      "delete" : {
+        "summary" : "Dismiss hero",
+        "description" : "",
+        "operationId" : "dismissHero",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "heroId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/id" : {
+      "get" : {
+        "summary" : "Get mage identifier",
+        "description" : "",
+        "operationId" : "getMageId",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "integer",
+              "format" : "int32"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/manacharge" : {
+      "post" : {
+        "summary" : "Charge mana using turns",
+        "description" : "",
+        "operationId" : "manaCharge",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "turns",
+          "description" : "Turns to use",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Turns"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/recruit" : {
+      "post" : {
+        "summary" : "Set recruitment",
+        "description" : "",
+        "operationId" : "setRecruitment",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "recruitment parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/SetRecruitmentAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/research" : {
+      "post" : {
+        "summary" : "Research spells",
+        "description" : "",
+        "operationId" : "research",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "research parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ResearchAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/skill" : {
+      "put" : {
+        "summary" : "Set skill to learn",
+        "description" : "",
+        "operationId" : "setSkill",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "skill parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/SetSkillAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/tax" : {
+      "post" : {
+        "summary" : "Tax population to get gold",
+        "description" : "",
+        "operationId" : "tax",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "turns",
+          "description" : "Turns to use",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Turns"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/mage/useitem" : {
+      "post" : {
+        "summary" : "Use item",
+        "description" : "",
+        "operationId" : "useItem",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "parameters",
+          "description" : "item parameters",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ItemUseAction"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/api/timestamp" : {
+      "get" : {
+        "summary" : "Get server time",
+        "description" : "",
+        "operationId" : "getTimestamp",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "SetEnchantmentOptionsAction" : {
+      "type" : "object",
+      "properties" : {
+        "enchantmentId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "options" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "SpellCastAction" : {
+      "type" : "object",
+      "properties" : {
+        "targetId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "spellType" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "numberOfCasts" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Message" : {
+      "type" : "object"
+    },
+    "DispelAction" : {
+      "type" : "object",
+      "properties" : {
+        "enchantmentId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "mana" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    },
+    "SetHeroAbilityAction" : {
+      "type" : "object",
+      "properties" : {
+        "heroId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "ability" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "active" : {
+          "type" : "boolean",
+          "default" : false
+        }
+      }
+    },
+    "BuildingAction" : {
+      "type" : "object",
+      "properties" : {
+        "buildingAmount" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BuildingAmount"
+          }
+        }
+      }
+    },
+    "UnitAmount" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "amount" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    },
+    "DeathMessage" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/Message"
+      }, {
+        "type" : "object",
+        "properties" : {
+          "cause" : {
+            "type" : "string"
+          }
+        }
+      } ]
+    },
+    "DisbandAction" : {
+      "type" : "object",
+      "properties" : {
+        "disbandAmount" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/UnitAmount"
+          }
+        }
+      }
+    },
+    "ItemUseAction" : {
+      "type" : "object",
+      "properties" : {
+        "targetId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "itemType" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "numberOfItems" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Empty" : {
+      "type" : "object"
+    },
+    "ResearchAction" : {
+      "type" : "object",
+      "properties" : {
+        "color" : {
+          "type" : "string",
+          "enum" : [ "ASCENDANT", "VERDANT", "ERADICATION", "NETHER", "PHANTASM", "PLAIN" ]
+        },
+        "turns" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "DestroyAction" : {
+      "type" : "object",
+      "properties" : {
+        "destroyAmount" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BuildingAmount"
+          }
+        }
+      }
+    },
+    "RecruitmentAmount" : {
+      "type" : "object",
+      "properties" : {
+        "amount" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "amountType" : {
+          "type" : "string",
+          "enum" : [ "TOTAL", "CAP" ]
+        },
+        "unitType" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Turns" : {
+      "type" : "object",
+      "properties" : {
+        "turns" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "BuildingAmount" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "enum" : [ "WILDERNESS", "FARM", "TOWN", "WORKSHOP", "BARRACK", "NODE", "LIBRARY", "FORTRESS", "BARRIER" ]
+        },
+        "amount" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Messages" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/Message"
+      }, {
+        "type" : "object",
+        "properties" : {
+          "messages" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/Message"
+            }
+          }
+        }
+      } ]
+    },
+    "AssignmentAction" : {
+      "type" : "object",
+      "properties" : {
+        "spellType" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "spellRatio" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "itemType" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "itemRatio" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "UseHeroAbilityAction" : {
+      "type" : "object",
+      "properties" : {
+        "heroType" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "ability" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "targetId" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Login" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SetSkillAction" : {
+      "type" : "object",
+      "properties" : {
+        "skillType" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "DonationAction" : {
+      "type" : "object",
+      "properties" : {
+        "donation" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "god" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "ErrorMessage" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/Message"
+      }, {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "$ref" : "#/definitions/Message"
+          },
+          "exception" : {
+            "type" : "string"
+          }
+        }
+      } ]
+    },
+    "SetRecruitmentAction" : {
+      "type" : "object",
+      "properties" : {
+        "recruitments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RecruitmentAmount"
+          }
+        }
+      }
+    },
+    "TextMessage" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/Message"
+      }, {
+        "type" : "object",
+        "properties" : {
+          "text" : {
+            "type" : "string"
+          }
+        }
+      } ]
+    }
+  }
+}
